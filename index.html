@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#071a2e">
+<title>IGTER CONNECT RDC</title>
+<style>
+:root{--n:#071a2e;--b:#087cf5;--g:#12a66a;--o:#f59e0b;--r:#ef4444;--bg:#f4f7fb;--t:#152033;--m:#667085;--line:#e5eaf1}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--t);overflow-x:hidden}button,input,select,textarea{font:inherit}button{border:0}
+#app{min-height:100vh;padding-bottom:78px}.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 15px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:9px}.logo{width:40px;height:40px;border-radius:50%;background:#fff;border:3px solid #f2c94c;display:grid;place-items:center;color:var(--b);font-size:9px;font-weight:900}.brand b{font-size:14px}.brand small{display:block;color:var(--m);font-size:10px}.avatar{width:38px;height:38px;border-radius:50%;background:#e7f1ff;color:var(--b);display:grid;place-items:center;font-weight:800}
+.view{display:none;padding:15px}.view.active{display:block}.title{margin:8px 0 15px}.title h1{font-size:24px;margin:0 0 4px}.muted{color:var(--m);font-size:13px}.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px;margin-bottom:12px;box-shadow:0 8px 26px rgba(10,35,70,.06)}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}.kpi{border-left:4px solid var(--b)}.kpi strong{font-size:24px;display:block;margin:4px 0}.kpi small{color:var(--m)}
+.btn{min-height:46px;padding:0 15px;border-radius:10px;background:var(--b);color:#fff;font-weight:750}.btn.secondary{background:#eaf2fb;color:#075aa8}.btn.green{background:var(--g)}.btn.red{background:var(--r)}.full{width:100%}.actions{display:grid;gap:9px}.chips{display:flex;gap:7px;overflow:auto;padding-bottom:3px}.chip{white-space:nowrap;background:#edf3f9;padding:8px 11px;border-radius:20px;font-size:12px}.chip.on{background:var(--b);color:#fff}
+.map{height:260px;border-radius:13px;background:linear-gradient(135deg,#dff1ff,#f1f9ff);position:relative;overflow:hidden}.map:after{content:"RDC";position:absolute;inset:0;display:grid;place-items:center;color:#72a9d6;font-size:46px;font-weight:900;opacity:.28}.pin{position:absolute;z-index:2;width:16px;height:16px;border-radius:50%;background:var(--r);border:3px solid #fff;box-shadow:0 2px 9px #789}.p1{left:25%;top:44%}.p2{left:62%;top:32%}.p3{left:71%;top:60%}.p4{left:44%;top:70%}
+.badge{display:inline-block;padding:5px 9px;border-radius:20px;font-size:11px;font-weight:800}.blue{background:#dcebff;color:#0560c8}.green{background:#dcf8ea;color:#078454}.orange{background:#fff0d0;color:#a86400}.red{background:#ffe1e1;color:#b42318}
+.form{display:grid;gap:11px}.form label{font-size:12px;font-weight:750}.form input,.form select,.form textarea{width:100%;border:1px solid #d7e0ea;border-radius:10px;padding:12px;background:#fff}.form textarea{min-height:100px}
+.bottom{position:fixed;z-index:30;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:7px 4px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -8px 25px rgba(0,0,0,.06)}.bottom button{background:none;color:#667085;font-size:10px;padding:5px 1px}.bottom button.on{color:var(--b);font-weight:800}.bottom span{display:block;font-size:18px;margin-bottom:2px}
+.timeline{border-left:3px solid #dbeafe;padding-left:18px}.event{position:relative;margin-bottom:19px}.event:before{content:"";position:absolute;left:-27px;top:2px;width:11px;height:11px;background:var(--b);border:3px solid #fff;border-radius:50%;box-shadow:0 0 0 1px #b8d8ff}.event b{font-size:13px}.event p{margin:4px 0 0;color:var(--m);font-size:12px}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.55);display:none;align-items:flex-end}.sheet{width:100%;background:#fff;border-radius:22px 22px 0 0;padding:18px 15px max(18px,env(safe-area-inset-bottom));max-height:88vh;overflow:auto}.sheet h2{margin:0 0 10px}.handle{width:42px;height:5px;border-radius:5px;background:#d7dee7;margin:0 auto 15px}
+.hero{background:linear-gradient(145deg,#071a2e,#0b4d86);color:#fff;border-radius:18px;padding:22px;margin-bottom:14px}.hero h1{font-size:29px;line-height:1.08;margin:18px 0 8px}.hero p{color:#d9e9f7;line-height:1.5;font-size:13px}
+@media(min-width:800px){#app{max-width:520px;margin:auto;background:var(--bg);box-shadow:0 0 60px rgba(0,0,0,.08)}.top{border-radius:0}.view{padding:18px}}
+</style>
+</head>
+<body>
+<div id="app">
+<header class="top">
+ <div class="brand"><div class="logo">IGTER</div><div><b>IGTER CONNECT RDC</b><small id="roleLabel">Citoyen • Démonstration</small></div></div>
+ <div class="avatar" id="avatar">C</div>
+</header>
+
+<section id="home" class="view active">
+ <div class="hero">
+  <span class="badge blue">PROTOTYPE INTERACTIF</span>
+  <h1>Une plateforme pour suivre l'action territoriale.</h1>
+  <p>Démo mobile : signalement, traitement, mission terrain, recommandation et clôture.</p>
+  <button type="button" class="btn full" onclick="openRole();return false">Choisir un profil</button>
+ </div>
+ <div class="card"><b>Parcours principal</b><div class="timeline" style="margin-top:15px">
+  <div class="event"><b>Signalement</b><p>Un dossier est créé avec localisation et preuves.</p></div>
+  <div class="event"><b>Mission terrain</b><p>Un agent est affecté et transmet son rapport.</p></div>
+  <div class="event"><b>Recommandation</b><p>L'action corrective est enregistrée et suivie.</p></div>
+  <div class="event"><b>Clôture</b><p>La validation termine le cycle.</p></div>
+ </div></div>
+</section>
+
+<section id="dashboard" class="view">
+ <div class="title"><h1>Tableau de bord</h1><div class="muted">Vue de démonstration</div></div>
+ <div class="kpis">
+  <div class="card kpi">Dossiers<strong id="k1">1 284</strong><small>+12% ce mois</small></div>
+  <div class="card kpi" style="border-left-color:var(--g)">Clôturés<strong>632</strong><small>Suivi terminé</small></div>
+  <div class="card kpi" style="border-left-color:var(--o)">En cours<strong id="k2">486</strong><small>Actions actives</small></div>
+  <div class="card kpi" style="border-left-color:var(--r)">Retards<strong>127</strong><small>À traiter</small></div>
+ </div>
+ <div class="card"><b>Cartographie</b><div class="map" style="margin-top:10px"><i class="pin p1"></i><i class="pin p2"></i><i class="pin p3"></i><i class="pin p4"></i></div></div>
+ <div class="card"><b>Dernier dossier</b><p><b>CIT-2026-000458</b><br><span class="muted">Infrastructure • N'Sele</span></p><span class="badge orange">En cours</span><button class="btn secondary full" style="margin-top:10px" onclick="openCase()">Ouvrir le dossier</button></div>
+</section>
+
+<section id="report" class="view">
+ <div class="title"><h1>Nouveau signalement</h1><div class="muted">Étape <span id="stepNo">1</span> sur 3</div></div>
+ <div class="card form">
+  <label>Catégorie<select id="cat"><option>Infrastructure</option><option>Administration</option><option>Équipements</option><option>Finances</option></select></label>
+  <label>Entité concernée<input id="entity" value="Commune de N'Sele"></label>
+  <label>Description<textarea id="desc">Dégradation importante d'une route nécessitant une intervention.</textarea></label>
+  <label>Localisation<input value="-4.4419, 15.2663"></label>
+  <button type="button" class="btn" onclick="nextReport();return false">Continuer</button>
+ </div>
+</section>
+
+<section id="evidence" class="view">
+ <div class="title"><h1>Ajouter les preuves</h1><div class="muted">Étape 2 sur 3</div></div>
+ <div class="card">
+  <div style="height:180px;border-radius:12px;background:#eaf4ff;display:grid;place-items:center;font-size:55px">📷</div>
+  <p><span class="badge green" id="photoBadge">0 photo</span> <span class="badge blue">GPS activé</span></p>
+  <button class="btn full" onclick="addPhoto()">+ Ajouter une photo</button>
+ </div>
+ <button class="btn green full" onclick="sendReport()">Envoyer le signalement</button>
+</section>
+
+<section id="sent" class="view">
+ <div class="card" style="text-align:center;padding:30px 18px"><div style="font-size:60px">✅</div><h1>Signalement envoyé</h1><p class="muted">Votre dossier a été transmis.</p><div class="card"><small>Numéro de référence</small><h2 style="color:var(--b);margin:6px 0">CIT-2026-000458</h2></div><button class="btn full" onclick="go('track')">Suivre le dossier</button></div>
+</section>
+
+<section id="track" class="view">
+ <div class="title"><h1>Suivi du dossier</h1><div class="muted">CIT-2026-000458</div></div>
+ <div class="card"><span class="badge orange" id="caseBadge">En cours</span><div class="timeline" style="margin-top:20px" id="timeline">
+  <div class="event"><b>Signalement reçu</b><p>15/10/2026 • enregistré</p></div>
+  <div class="event"><b>Analyse</b><p>Cellule d'analyse • en cours</p></div>
+  <div class="event"><b>Mission terrain</b><p>En attente</p></div>
+  <div class="event"><b>Recommandation</b><p>En attente</p></div>
+ </div></div>
+ <button type="button" class="btn full" onclick="openCase();return false">Voir le dossier complet</button>
+</section>
+
+<section id="cases" class="view">
+ <div class="title"><h1>Dossiers</h1><div class="muted">Base simulée</div></div>
+ <div class="chips"><button class="chip on">Tous</button><button class="chip">En cours</button><button class="chip">Retard</button><button class="chip">Clôturés</button></div>
+ <div class="card"><b>REC-2026-00125</b><p class="muted">Réhabilitation bâtiment • N'Sele</p><span class="badge blue">En cours</span><button class="btn secondary full" style="margin-top:10px" onclick="openCase()">Ouvrir</button></div>
+ <div class="card"><b>REC-2026-00095</b><p class="muted">Équipements • Kasangulu</p><span class="badge red">En retard</span><button class="btn secondary full" style="margin-top:10px" onclick="openCase()">Ouvrir</button></div>
+</section>
+
+<section id="field" class="view">
+ <div class="title"><h1>Mission terrain</h1><div class="muted">Mode Agent terrain</div></div>
+ <div class="card"><span class="badge blue">MISSION ACTIVE</span><h2 style="font-size:20px">REC-2026-00125</h2><p>Réhabilitation bâtiment administratif<br><b>N'Sele — Kinshasa</b></p><div class="actions"><button class="btn secondary" onclick="toast('Itinéraire simulé ouvert')">⌖ Itinéraire</button><button class="btn" onclick="fieldReport()">📷 Faire le constat</button></div></div>
+ <div class="card"><b>Preuves transmises</b><p class="muted">3 photos • GPS • note terrain</p><span class="badge green">Synchronisé</span></div>
+</section>
+
+<section id="inspect" class="view">
+ <div class="title"><h1>Validation inspecteur</h1><div class="muted">Cycle de traitement</div></div>
+ <div class="card"><b>CIT-2026-000458</b><span class="badge orange" style="float:right">En cours</span><div class="timeline" style="margin-top:18px">
+  <div class="event"><b>Signalement</b><p>Reçu</p></div><div class="event"><b>Mission</b><p>Rapport terrain reçu</p></div><div class="event"><b>Recommandation</b><p>À valider</p></div>
+ </div><div class="actions"><button type="button" class="btn" onclick="advanceCase();return false">✓ Émettre la recommandation</button><button class="btn secondary" onclick="toast('Demande de complément envoyée')">Demander complément</button></div></div>
+</section>
+
+<section id="authority" class="view">
+ <div class="title"><h1>Autorité</h1><div class="muted">Validation de l'action</div></div>
+ <div class="card"><span class="badge orange">À VALIDER</span><h3>Recommandation REC-2026-00125</h3><p>Engager l'action corrective et transmettre une preuve de réalisation.</p><div class="actions"><button type="button" class="btn green" onclick="closeCase();return false">✓ Valider et clôturer</button><button class="btn secondary" onclick="toast('Retour pour complément')">Demander un complément</button></div></div>
+</section>
+
+<section id="reports" class="view">
+ <div class="title"><h1>Rapports</h1><div class="muted">Exports simulés</div></div>
+ <div class="card form"><label>Type<select><option>Rapport de mission</option><option>Rapport mensuel</option><option>Rapport annuel</option></select></label><label>Période<input type="month" value="2026-09"></label><button class="btn" onclick="toast('Rapport généré — démonstration')">📄 Générer le rapport</button></div>
+</section>
+
+<nav class="bottom">
+ <button class="on" data-go="home" onclick="go('home')"><span>⌂</span>Accueil</button>
+ <button data-go="dashboard" onclick="go('dashboard')"><span>▦</span>Dashboard</button>
+ <button data-go="report" onclick="go('report')"><span>＋</span>Signaler</button>
+ <button data-go="track" onclick="go('track')"><span>▣</span>Suivi</button>
+ <button data-go="cases" onclick="go('cases')"><span>☰</span>Dossiers</button>
+</nav>
+</div>
+
+<div id="modal" class="modal" onclick="if(event.target===this)closeModal()"><div class="sheet"><div class="handle"></div><div id="sheetContent"></div></div></div>
+<div id="toast" style="position:fixed;z-index:80;left:15px;right:15px;bottom:92px;background:#071a2e;color:#fff;padding:13px 15px;border-radius:11px;display:none;text-align:center;font-size:13px"></div>
+
+<script>
+const state={photos:0,caseStatus:'En cours',role:'Citoyen'};
+function go(id, writeHash=true){
+ const el=document.getElementById(id);
+ if(!el){ toast('Écran indisponible : '+id); return false; }
+ document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+ el.classList.add('active');
+ document.querySelectorAll('.bottom button').forEach(x=>x.classList.toggle('on',x.dataset.go===id));
+ if(writeHash && location.hash !== '#'+id){ history.replaceState(null,'','#'+id); }
+ window.scrollTo(0,0);
+ return false;
+}
+function routeFromHash(){ const id=(location.hash||'#home').slice(1); go(document.getElementById(id)?id:'home',false); }
+window.addEventListener('hashchange',routeFromHash);
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.__t);window.__t=setTimeout(()=>t.style.display='none',2300)}
+function openRole(){document.getElementById('sheetContent').innerHTML='<h2>Choisissez votre profil</h2><p class="muted">Mode démonstration</p><div class="actions"><button class="btn" onclick="setRole(\'Citoyen\')">👤 Citoyen</button><button class="btn secondary" onclick="setRole(\'Agent terrain\')">👷 Agent terrain</button><button class="btn secondary" onclick="setRole(\'Inspecteur\')">🕵️ Inspecteur</button><button class="btn secondary" onclick="setRole(\'Autorité\')">🏛️ Autorité</button><button class="btn secondary" onclick="setRole(\'Direction\')">📊 Direction</button></div>';document.getElementById('modal').style.display='flex'}
+function setRole(r){state.role=r;document.getElementById('roleLabel').textContent=r+' • Démonstration';document.getElementById('avatar').textContent=r[0];closeModal();toast('Profil '+r+' activé');if(r==='Citoyen')go('home');if(r==='Agent terrain')go('field');if(r==='Inspecteur')go('inspect');if(r==='Autorité')go('authority');if(r==='Direction')go('dashboard')}
+function closeModal(){document.getElementById('modal').style.display='none'}
+function nextReport(){go('evidence');document.getElementById('stepNo').textContent='2';toast('Informations enregistrées')}
+function addPhoto(){state.photos++;document.getElementById('photoBadge').textContent=state.photos+(state.photos>1?' photos':' photo');toast('Photo ajoutée — simulation')}
+function sendReport(){go('sent');state.caseStatus='En cours';toast('Signalement transmis avec succès')}
+function openCase(){document.getElementById('sheetContent').innerHTML='<h2>CIT-2026-000458</h2><p><span class="badge orange">'+state.caseStatus+'</span></p><div class="card"><b>Objet</b><p class="muted">Dégradation d’une route — Commune de N\'Sele</p><b>Preuves</b><p class="muted">'+Math.max(state.photos,3)+' photos • GPS • rapport</p><b>Échéance</b><p class="muted">15/10/2026</p></div><div class="timeline"><div class="event"><b>Signalement reçu</b><p>Enregistré</p></div><div class="event"><b>Mission terrain</b><p>Rapport reçu</p></div><div class="event"><b>Recommandation</b><p>En cours</p></div></div><button class="btn full" onclick="closeModal();go(\'inspect\')">Continuer le traitement</button>';document.getElementById('modal').style.display='flex'}
+function fieldReport(){state.photos=Math.max(state.photos,3);toast('Constat terrain enregistré');go('inspect')}
+function advanceCase(){state.caseStatus='À valider';document.getElementById('caseBadge').textContent='À valider';toast('Recommandation émise');go('authority')}
+function closeCase(){state.caseStatus='Clôturé';document.getElementById('caseBadge').textContent='Clôturé';document.getElementById('caseBadge').className='badge green';toast('Dossier clôturé');go('reports')}
+routeFromHash();
+</script>
+</body>
+</html>
